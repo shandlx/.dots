@@ -120,6 +120,41 @@ alias nvim_config='n ~/.config/nvim/init.lua'
 alias nconfig='nvim_config'
 
 
+export NOTES_GIT_PATH='/home/shandlx/hub/vault/notes'
+
+
+function get_quick_git(){
+  find ~/hub/ -type d -name ".git" -exec dirname {} \; | fzf | xargs -I {} sh -c 'export LAST_QUICK_GIT_PATH="{}"; echo $LAST_QUICK_GIT_PATH';
+}
+
+function quick_git(){
+  get_quick_git | xargs -I {} git -C {} 
+}
+
+function get_last_quick_git(){
+  if [ -z "$LAST_QUICK_GIT_PATH" ]; then
+    echo "Error: LAST_QUICK_GIT_PATH is not set." >&2
+    return 1
+  else
+    echo "$LAST_QUICK_GIT_PATH"
+  fi
+}
+
+function last_quick_git(){
+  get_last_quick_git | xargs -I {} git -C {} 
+}
+
+alias qg='quick_git'
+alias lqg='last_quick_git'
+alias refresh_git_remote='xargs -I {} sh -c "git -C {} pull && git -C {} push"'
+alias qgrf='get_quick_git | refresh_git_remote'  # quick git remote refresh
+alias lqgrf='get_last_quick_gitg | refresh_git_remote'
+
+
+alias notes_git='git -C $NOTES_GIT_PATH'
+alias notes_remote_sync='notes_git pull && notes_git push'
+
+
 alias cleanup="sudo pacman -Rns $(pacman -Qdtq)" # Remove unused dependencies
 
 

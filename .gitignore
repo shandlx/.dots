@@ -1,0 +1,7 @@
+.config/google-chrome
+.config/google-chrome/*
+.config/gh/*
+.config/nautilus/*
+.config/mimeapps.list
+.config/dconf/*
+.config/pulse/*

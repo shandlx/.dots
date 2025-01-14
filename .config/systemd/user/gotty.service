@@ -1,0 +1,11 @@
+[Unit]
+Description=Custom User Service with Environment Variables
+After=default.target
+
+[Service]
+Environment="NO_TMUX=1"
+ExecStart=gotty -w -c 'pd:ctg9846' zsh
+Restart=always
+
+[Install]
+WantedBy=default.target

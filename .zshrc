@@ -19,6 +19,7 @@ zstyle ':z4h:bindkey' keyboard  'pc'
 if [[ -z "$NO_TMUX" ]]; then
   zstyle ':z4h:' start-tmux command tmux -u new -A -D -t z4h
 fi
+# zstyle ':z4h:' start-tmux command zsh
 
 # Whether to move prompt to the bottom when zsh starts and on Ctrl+L.
 zstyle ':z4h:' prompt-at-bottom 'no'
@@ -144,6 +145,7 @@ function last_quick_git(){
   get_last_quick_git | xargs -I {} git -C {} 
 }
 
+alias lg='lazygit'
 alias qg='quick_git'
 alias lqg='last_quick_git'
 alias refresh_git_remote='xargs -I {} sh -c "git -C {} pull && git -C {} push"'
@@ -249,3 +251,11 @@ alias pg='pass git'
 alias pga='pg add'
 alias pgc='pg commit'
 alias pgrf='pg pull && pg push'
+
+
+
+# Docker things
+alias d='docker'
+alias compose='docker compose'
+alias c='compose'
+alias ld='lazydocker'

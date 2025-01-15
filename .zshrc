@@ -151,6 +151,8 @@ alias lqg='last_quick_git'
 alias refresh_git_remote='xargs -I {} sh -c "git -C {} pull && git -C {} push"'
 alias qgrf='get_quick_git | refresh_git_remote'  # quick git remote refresh
 alias lqgrf='get_last_quick_gitg | refresh_git_remote'
+alias gdt='git update-index --assume-unchanged'
+alias gct='git update-index --no-assume-unchanged'
 
 
 alias notes_git='git -C $NOTES_GIT_PATH'
@@ -233,6 +235,7 @@ alias python3='python3.10'
 alias python='python3.10'
 alias pip3='python3.10 -m pip'
 alias pip='python3.10 -m pip'
+alias p='python3'
 
 
 # Ollama
@@ -259,3 +262,4 @@ alias d='docker'
 alias compose='docker compose'
 alias c='compose'
 alias ld='lazydocker'
+alias qn='quicknotes'
